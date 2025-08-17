@@ -1,0 +1,27 @@
+{
+"another menu":
+    {
+      "name": "Another Menu",
+      "exec": "manush -c /usr/local/etc/manush/another.json",
+      "cmnt": "Another Menu"
+    },
+"restart web server":
+    {
+      "name": "Restart Web Server",
+      "exec": "service nginx restart",
+      "cmnt": "Restart NGINX Server"
+    },
+"list":
+    {
+      "name": "ls",
+      "exec": "ls -al",
+      "cmnt": "ls -al"
+    },
+"shell":
+    {
+      "name": "Shell",
+      "exec": "/bin/sh",
+      "exitstatus": "false",
+      "cmnt": "POSIX Shell"
+    }
+}
