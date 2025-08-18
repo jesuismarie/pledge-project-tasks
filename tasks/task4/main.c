@@ -69,17 +69,18 @@ static void *producer_thread(void *arg) {
 
 		size_t want = strlen(src);
 		if (want > sizeof(m->buf))
-			want = sizeof(m->buf) - 1;
+			want = sizeof(m->buf) - 1 - ((i % 11) == 0);
 		m->len = want;
-		strncpy(m->buf, src, want);
-		m->buf[m->len] = '\0';
+		if ((i % 11) == 0) {
+			m->buf[0] = '#';
+			strncpy(m->buf + 1, src, want);
+		}
+		else
+			strncpy(m->buf, src, want);
+		m->buf[m->len + ((i % 11) == 0)] = '\0';
 
 		if (enqueue(m) != 0) {
 			free(m);
-		} else {
-			if ((i % 11) == 0) {
-				m->buf[0] = '#';
-			}
 		}
 
 		if ((i % 100) == 0) {
