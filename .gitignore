@@ -1,3 +1,4 @@
 *.out
 *.o
 racey.log
+.vscode/
